@@ -43,11 +43,11 @@ import org.bouncycastle.openpgp.PGPPrivateKey;
 import org.corgi.packagedrone.plus.RpmVersion;
 import org.corgi.packagedrone.plus.deps.RpmDependencyFlags;
 import org.corgi.packagedrone.plus.info.RpmInformation;
-import org.eclipse.packagedrone.utils.io.IOConsumer;
-import org.eclipse.packagedrone.utils.io.OutputSpooler;
-import org.eclipse.packagedrone.utils.io.SpoolOutTarget;
 import org.corgi.packagedrone.plus.HashAlgorithm;
-import org.eclipse.packagedrone.utils.security.pgp.SigningStream;
+import org.corgi.packagedrone.plus.io.IOConsumer;
+import org.corgi.packagedrone.plus.io.OutputSpooler;
+import org.corgi.packagedrone.plus.io.SpoolOutTarget;
+import org.corgi.packagedrone.plus.security.pgp.SigningStream;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 
@@ -514,7 +514,7 @@ public class RepositoryCreator
         {
             if ( privateKey != null )
             {
-                this.signingStreamCreator = output -> new SigningStream ( output, privateKey, digestAlgorithm, false );
+                this.signingStreamCreator = output -> new SigningStream( output, privateKey, digestAlgorithm, false );
             }
             else
             {
